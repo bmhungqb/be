@@ -271,7 +271,7 @@ const currentLevel = async (studentId) => {
       listLevelId = listLevelId.map((element) => element.levelId);
 
       for (let levelId of listLevelId) {
-        let row = (levelId % 3) - 1;
+        let row = (levelId % 3 === 0 ? 3 : levelId % 3) - 1;
         let col = Math.ceil(levelId / 3) - 1;
         levelMatrix[row][col] = 1;
         let levelTimeScore = await getMaxScoreTimeOfLevel(
